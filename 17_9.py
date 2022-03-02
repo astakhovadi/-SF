@@ -1,16 +1,10 @@
 
 def binary_search(array, element, left, right):
 
-    
-    if (element > array[-2]) and element != array[-2] : # 
-        return print ('Номер позиции элемента, который меньше введенного N: ', len(sort_x)-1)
-    
     if left > right: # если левая граница превысила правую,
         return False #
     
-    
-    
-    
+   
     middle = (right+left) // 2 # находим середину
     if array[middle] == element: # если элемент в середине,
         return print ('Номер позиции элемента, который меньше введенного N: ', middle-1, 'Номер позиции элемента, который больше/равен введенному N: ',  middle)
@@ -25,23 +19,22 @@ def binary_search(array, element, left, right):
 
 
 def sort_list (x): # создаем и сортируем список
-    a = x.split(' ')
-    b =[int(i) for i in a]
-    
+   
     b.sort()
-    
     return (b)
 
 
 x = input('введите последовательность чисел через пробел: ')
 element = int(input('введите число N: '))
-x=x+' ' + str(element)
-sort_x = sort_list(x)
+a = x.split(' ')
+b =[int(i) for i in a]
 
+while element <= min(b) or element >= max(b):
+    print ('N находится вне границ последовательности. Пожалуйста, введите другое число: ')
+    element = int(input('введите число N: '))
+    
 
+b.append(element)
+sort_x = sort_list(b)
 print(binary_search(sort_x, element, 0, len(sort_x)-1))
-
-
-
-
 
